@@ -1,0 +1,2 @@
+# Set the serial port to be used
+OPTIONS="-p /dev/ttyUSB0 -s 9600 -m 8E1"

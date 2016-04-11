@@ -1,0 +1,20 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+export DH_VERBOSE=1
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+
+%:
+	dh $@ --with systemd --with autoreconf
+
+override_dh_auto_configure:
+	dh_auto_configure -- --host=$(DEB_HOST_MULTIARCH) \
+                         --build=$(DEB_HOST_MULTIARCH) \
+                         --libdir=$$\{prefix\}/lib/$(DEB_HOST_MULTIARCH) \
+                         --libexecdir=$$\{prefix\}/$(DEB_HOST_MULTIARCH)
+
+override_dh_auto_build:
+	make -j`nproc`
+

@@ -1,0 +1,12 @@
+Source: mbusd
+Section: unknown
+Priority: optional
+Maintainer: William MARTIN <william.martin@power-lan.com>
+Build-Depends: debhelper (>= 8.0.0), dh-systemd (>= 1.5)
+Standards-Version: 3.9.4
+Homepage: http://www.ifsttar.fr
+
+Package: mbusd
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: mbusd

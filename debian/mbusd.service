@@ -1,0 +1,14 @@
+[Unit]
+Description=mbusd
+
+[Service]
+User=root
+Type=simple
+EnvironmentFile=/etc/default/mbusd
+ExecStart=/usr/bin/mbusd ${OPTIONS}
+RestartSec=10
+Restart=always
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target
